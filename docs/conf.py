@@ -263,6 +263,8 @@ htmlhelp_basename = 'leetcodenotedoc'
      #
      # 'figure_align': 'htbp',
 #}
+#解决在readthedocs编译PDF含中文的问题  https://www.kawabangga.com/posts/2331
+#https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py。
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
