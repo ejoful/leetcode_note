@@ -30,7 +30,8 @@
   
 
   
-    <link rel="top" title="leetcode note 1.0 documentation" href="#"/> 
+    <link rel="top" title="leetcode note 1.0 documentation" href="#"/>
+        <link rel="next" title="Two Sum" href="topics/1-two-sum.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,7 +80,11 @@
           
             
             
-                <ul class="simple">
+                <p class="caption"><span class="caption-text">Category - Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="topics/1-two-sum.html">Two Sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topics/2-add-two-numbers.html">Add Two Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topics/3-longest-substring-without-repeating-characters.html">Longest Substring Without Repeating Characters</a></li>
 </ul>
 
             
@@ -146,47 +151,15 @@
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>《数据结构与算法》, 张铭，王腾蛟，赵海燕，高等教育出版社，2008年6月。普通高等教育“十一五”国家级规划教材。</td></tr>
 </tbody>
 </table>
-<p><em>text</em>
-<strong>text</strong>
-sample:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="n">public</span><span class="p">:</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">singleNumber</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">size</span><span class="p">();</span>
-
-        <span class="o">//</span> <span class="n">get</span> <span class="n">the</span> <span class="n">xor</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span><span class="p">,</span> <span class="n">b</span> <span class="o">^</span> <span class="n">c</span>
-        <span class="nb">int</span> <span class="n">xor_result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">xor_result</span> <span class="o">^=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="p">}</span>
-
-        <span class="o">//</span> <span class="n">get</span> <span class="n">the</span> <span class="n">K</span> <span class="n">of</span> <span class="n">first</span> <span class="n">bit</span><span class="p">,</span> <span class="n">which</span> <span class="n">equals</span> <span class="mi">1</span>
-        <span class="nb">int</span> <span class="n">first_one_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="n">first_one_index</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">first_one_index</span><span class="o">&lt;</span> <span class="mi">32</span><span class="p">;</span> <span class="n">first_one_index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">((</span><span class="n">xor_result</span><span class="o">&gt;&gt;</span><span class="n">first_one_index</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="o">//</span> <span class="n">use</span> <span class="n">k</span> <span class="n">to</span> <span class="n">split</span> <span class="n">the</span> <span class="n">array</span> <span class="n">into</span> <span class="n">two</span> <span class="n">part</span>
-        <span class="o">//</span> <span class="n">xor</span> <span class="n">the</span> <span class="n">sub</span> <span class="n">array</span><span class="p">,</span> <span class="k">if</span> <span class="n">the</span> <span class="n">element</span><span class="s1">&#39;s Kth bit also equals 1, b</span>
-        <span class="nb">int</span> <span class="n">xor_twice</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">((</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="n">first_one_index</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">xor_twice</span> <span class="o">^=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="o">//</span> <span class="k">with</span> <span class="n">b</span><span class="p">,</span> <span class="n">easy</span> <span class="n">to</span> <span class="n">get</span> <span class="n">c</span> <span class="n">by</span> <span class="n">math</span>
-        <span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="n">xor_twice</span><span class="p">,</span> <span class="n">xor_result</span> <span class="o">^</span> <span class="n">xor_twice</span> <span class="p">};</span>
-        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
+<div class="section" id="category-algorithms">
+<h2>Category - Algorithms<a class="headerlink" href="#category-algorithms" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="id6">
 </div>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
+<ol class="arabic simple">
+<li><a class="reference internal" href="topics/1-two-sum.html"><span class="doc">Two Sum</span></a></li>
+<li><a class="reference internal" href="topics/2-add-two-numbers.html"><span class="doc">Add Two Numbers</span></a></li>
+<li><a class="reference internal" href="topics/3-longest-substring-without-repeating-characters.html"><span class="doc">Longest Substring Without Repeating Characters</span></a></li>
+</ol>
 </div>
 <div class="section" id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
@@ -202,6 +175,13 @@ sample:</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="topics/1-two-sum.html" class="btn btn-neutral float-right" title="Two Sum" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
   
 
   <hr/>

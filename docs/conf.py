@@ -265,6 +265,7 @@ htmlhelp_basename = 'leetcodenotedoc'
 #}
 #解决在readthedocs编译PDF含中文的问题  https://www.kawabangga.com/posts/2331
 #https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py。
+#https://www.xncoding.com/2017/01/22/fullstack/readthedoc.html
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',

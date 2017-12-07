@@ -30,49 +30,22 @@ Leetcode note |version| documentation
 .. [#] 《C++ Primer(中文版)(第5版)\》, 斯坦利·李普曼 (Stanley B. Lippman) (作者),‎ 约瑟·拉乔伊 (Josee Lajoie) (作者),‎ 芭芭拉·默 (Barbara E. Moo) (作者),‎ 王刚 (译者),‎ 杨巨峰 (译者), 电子工业出版社
 .. [#] 《数据结构与算法》, 张铭，王腾蛟，赵海燕，高等教育出版社，2008年6月。普通高等教育“十一五”国家级规划教材。
 
-*text*
-**text**
-sample::
 
-	class Solution {
-	public:
-	    vector<int> singleNumber(vector<int>& nums) {
-		int length = nums.size();
-		
-		// get the xor result of the array, b ^ c
-		int xor_result = 0;
-		for(int i =0; i< length; i++) {
-		    xor_result ^= nums[i];
-		}
-		
-		// get the K of first bit, which equals 1
-		int first_one_index = 0;
-		for(first_one_index =0; first_one_index< 32; first_one_index++) {
-		    if((xor_result>>first_one_index) & 1 == 1) {
-		        break;
-		    }
-		}
-		
-		// use k to split the array into two part
-		// xor the sub array, if the element's Kth bit also equals 1, b
-		int xor_twice = 0;
-		for(int i =0; i< length; i++) {
-		    if((nums[i]>>first_one_index) & 1 == 1) {
-		        xor_twice ^= nums[i];
-		    }
-		}
-		
-		// with b, easy to get c by math
-		vector<int> result = {xor_twice, xor_result ^ xor_twice };        
-		return result;
-	    }
-	};
-
+Category - Algorithms
+=====================
 
 .. toctree::
-   :maxdepth: 2
+   :caption: Category - Algorithms
+   :hidden:
+
+   topics/1-two-sum
+   topics/2-add-two-numbers
+   topics/3-longest-substring-without-repeating-characters
 
 
+#. :doc:`topics/1-two-sum`
+#. :doc:`topics/2-add-two-numbers`
+#. :doc:`topics/3-longest-substring-without-repeating-characters`
 
 Indices and tables
 ==================
